@@ -58,10 +58,16 @@ app.post("/events", async (req, res) => {
         status,
         postId,
         content,
+        postId: req.params.id
       },
     };
-  res.send({});
+  res.status(201).send(comments)
 });
+
+app.post('/events' , (req,res) =>{
+  console.log('Event Received:', req.body.type)
+  res.send({})
+})
 
 app.listen(5001, () => {
   console.log("server up on 5001!!!");
